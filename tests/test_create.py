@@ -161,11 +161,11 @@ class IntegrationTests(TestCase):
 
             # regression test for #2599
             linked_data_.clear()
-            flask_metadata = glob(join(prefix, 'conda-meta', 'flask-0.*.json'))[-1]
-            bad_metadata = join(prefix, 'conda-meta', 'flask.json')
+            flask_metadata = glob(join(prefix, 'conda-meta', 'python-3.*.json'))[-1]
+            bad_metadata = join(prefix, 'conda-meta', 'python.json')
             copyfile(flask_metadata, bad_metadata)
-            assert not package_is_installed(prefix, 'flask', exact=True)
-            assert_package_is_installed(prefix, 'flask-0.')
+            assert not package_is_installed(prefix, 'python', exact=True)
+            assert_package_is_installed(prefix, 'python-3.')
 
     @pytest.mark.timeout(120)
     def test_just_python2(self):
